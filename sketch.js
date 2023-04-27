@@ -22,8 +22,8 @@ let eyes = [];
 let tail;
 let particleStrings = [];
 let physicTail;
-//const associatedVertices = [5, 6, 8];
-const associatedVertices = Array.from({ length: 16 }, (_, i) => i);
+const associatedVertices = [5, 6, 8];
+//const associatedVertices = Array.from({ length: 16 }, (_, i) => i);
 
 //flower
 //let physics;
