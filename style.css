@@ -1,0 +1,20 @@
+/* body {
+  background-color: #000;
+} */
+
+#canvas {
+  position: fixed;
+  transform: rotateY(180deg);
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+#video {
+  position: fixed;
+  transform: rotateY(180deg);
+  top: 0;
+  left: 0;
+  z-index: 0;
+}

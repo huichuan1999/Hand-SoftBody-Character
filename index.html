@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="p5.js"></script>
+  <script src="p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hapticdata/toxiclibsjs@0.3.2/build/toxiclibs.js"></script>
+
+  <script defer language="javascript" type="text/javascript" src="detection.js"></script>
+  <script defer language="javascript" type="text/javascript" src="sketch.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+  <main>
+    <!-- 
+      <div class="container"> -->
+    <!-- <video class="input_video"></video> -->
+    <video id="video"></video>
+    <!-- <canvas class="output_canvas" width="640px" height="400px"></canvas> -->
+    <!-- </div> -->
+
+  </main>
+  <script src="sketch.js"></script>
+  <sctipt src="detection.js"></sctipt>
+  <script src="SoftBody/particle.js"></script>
+  <script src="SoftBody/spring.js"></script>
+  <script src="SoftBody/ParticleString.js"></script>
+  <script src="SoftBody/HandParticle.js"></script>
+  <script src="handLandmarkTesting.js"></script>
+
+</body>
+
+</html>
