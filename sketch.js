@@ -198,9 +198,7 @@ function createCharacter() {
 
 function drawSoftBodyCharacter() {
   //draw soft body
-  physics.update();
-  physicTail.update();
-
+  
   fill(255, 150);
   stroke(255);
   strokeWeight(2);
@@ -266,16 +264,29 @@ function drawSoftBodyCharacter() {
   if (handParticles.length === 0) {
     addHandParticle(allLandmarkCoordinates);
   }
-  //console.log(handParticles.length);
 
-  // 为手部粒子创建排斥力
-  for (const handParticle of handParticles) {
-    const attraction = new toxi.physics2d.behaviors.AttractionBehavior(handParticle, 10, -0.2, 0);
+  for (let i = 0; i < handParticles.length; i++) {
+    handAttractions[i].attractor.set(handParticles[i].getPosition());
     // 将排斥力应用于花朵粒子
-    for (let flowerParticle of particles) {
-      physics.addBehavior(attraction);
-    }
+      physics.addBehavior(handAttractions[i]);
   }
+
+  // if (handParticles.length === 0) {
+  //   addHandParticle(allLandmarkCoordinates);
+  // }
+  // //console.log(handParticles.length);
+
+  // // 为手部粒子创建排斥力
+  // for (const handParticle of handParticles) {
+  //   const attraction = new toxi.physics2d.behaviors.AttractionBehavior(handParticle, 10, -0.2, 0);
+  //   // 将排斥力应用于花朵粒子
+  //   for (let flowerParticle of particles) {
+  //     physics.addBehavior(attraction);
+  //   }
+  // }
+
+  physics.update();
+  physicTail.update();
 
   const landmarkIndices = [8, 4];
   const landmarkCoordinates = getLandmarkCoordinates(landmarkIndices, detections);
@@ -486,4 +497,16 @@ function drawSymmertricalFlower() {
 
   }
 
+}
+
+function windowResized(){
+  resizeCanvas(window.innerWidth, window.innerHeight);
+}
+
+function keyPressed(){
+  //press the space to reload
+  if(keyCode === 32){
+    location.reload();
+  }
+  
 }

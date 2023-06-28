@@ -21,20 +21,36 @@ function calculateDistance(pointA, pointB) {
 }
 
 function addHandParticle(landmarkCoordinates) {
-  for (const index in landmarkCoordinates) {
-    if (index == 8 || index == 4) {
-      continue; // 跳过索引为 8 或 4 的关键点
+  for (let i = 0; i < 21; i++) {
+    if (i === 4 || i === 8) {
+      continue;
     }
-    const coord = landmarkCoordinates[index];
-    const p = new HandParticle(coord.x, coord.y);
-    handParticles.push(p);
-    //physics.addParticle(p);
-    //console.log("handParticle added in")
+    const coord = landmarkCoordinates[i];
+    if (coord) {
+      const handParticle = new HandParticle(coord.x, coord.y);
+      handParticles.push(handParticle);
 
-    // attraction 为负，粒子之间互相排斥
-    //physics.addBehavior(new toxi.physics2d.behaviors.AttractionBehavior(p, 100, -5, 0));
+      // 创建 AttractionBehavior 对象并添加到 handAttractions 数组中
+      const attraction = new toxi.physics2d.behaviors.AttractionBehavior(handParticle, 30, -0.5, 0);
+      handAttractions.push(attraction);
+    }
   }
 }
+// function addHandParticle(landmarkCoordinates) {
+//   for (const index in landmarkCoordinates) {
+//     if (index == 8 || index == 4) {
+//       continue; // 跳过索引为 8 或 4 的关键点
+//     }
+//     const coord = landmarkCoordinates[index];
+//     const p = new HandParticle(coord.x, coord.y);
+//     handParticles.push(p);
+//     //physics.addParticle(p);
+//     //console.log("handParticle added in")
+
+//     // attraction 为负，粒子之间互相排斥
+//     //physics.addBehavior(new toxi.physics2d.behaviors.AttractionBehavior(p, 100, -5, 0));
+//   }
+// }
 
 // function addHandParticle(landmarkCoordinates) {
 //   for (const index in landmarkCoordinates) {
