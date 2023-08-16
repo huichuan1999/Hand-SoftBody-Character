@@ -270,6 +270,7 @@ function drawSoftBodyCharacter() {
     // 将排斥力应用于花朵粒子
       physics.addBehavior(handAttractions[i]);
   }
+  //console.log(handAttractions);
 
   // if (handParticles.length === 0) {
   //   addHandParticle(allLandmarkCoordinates);
